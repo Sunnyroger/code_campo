@@ -1,0 +1,22 @@
+class UserSessionsController < ApplicationController
+	def new
+	end
+
+	def create
+	 	user = User.where(:username => params[:login]).first || User.where(:email => params[:login]).first
+	 	if user && user.authenticate(params[:password])
+	 		flash[:success] = "Successful signin"
+
+	 		login_as user
+	 		redirect_to user_path(user)
+	 	else
+	 		flash.now[:error] = "Invalid email/username/password"
+	 		render :new
+	 	end
+	end
+
+	def destory
+	 	
+	end
+
+end

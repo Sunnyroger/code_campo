@@ -1,1 +1,11 @@
-<h3><%= link_to "CodeCampo", root_path %></h3>
+<%= link_to "CodeCampo", root_path, class: "brand" %>
+<div class="user-bar">
+<%# binding.pry %>
+	<% if login? %>
+	
+		<%= link_to "You are #{@current_user.username}", user_path(current_user) %>
+	<% else %>
+		<%= link_to "LogIn", signin_path, class: "user-bar-list" %>
+		<%= link_to "SignUp", signup_path, class: "user-bar-list" %>
+	<% end %>
+</div>

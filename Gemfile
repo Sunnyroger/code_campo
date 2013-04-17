@@ -30,3 +30,5 @@ gem 'cancan'
 #simple_form
 gem 'simple_form', '~> 2.1.0'
 gem 'country_select'
+#password
+gem 'bcrypt-ruby'
