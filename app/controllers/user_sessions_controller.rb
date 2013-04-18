@@ -6,7 +6,6 @@ class UserSessionsController < ApplicationController
 	 	user = User.where(:username => params[:login]).first || User.where(:email => params[:login]).first
 	 	if user && user.authenticate(params[:password])
 	 		flash[:success] = "Successful signin"
-
 	 		login_as user
 	 		redirect_to user_path(user)
 	 	else
@@ -15,8 +14,9 @@ class UserSessionsController < ApplicationController
 	 	end
 	end
 
-	def destory
-	 	
+	def destroy
+	 	logout
+	 	redirect_to root_path
 	end
 
 end
