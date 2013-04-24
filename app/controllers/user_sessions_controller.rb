@@ -15,6 +15,7 @@ class UserSessionsController < ApplicationController
 	end
 
 	def destroy
+		flash[:notice] = "Successful log out!"
 	 	logout
 	 	redirect_to root_path
 	end
