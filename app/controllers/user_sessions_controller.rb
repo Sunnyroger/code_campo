@@ -7,7 +7,7 @@ class UserSessionsController < ApplicationController
 	 	if user && user.authenticate(params[:password])
 	 		flash[:success] = "Successful signin"
 	 		login_as user
-	 		redirect_to user_path(user)
+	 		redirect_back_or root_path
 	 	else
 	 		flash.now[:error] = "Invalid email/username/password"
 	 		render :new

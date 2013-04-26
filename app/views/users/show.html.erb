@@ -2,7 +2,6 @@
 <%= gravatar_for(@user) %>
 <h3><%= @user.email %></h3>
 <% if login? %>
-<%binding.pry%>
 	<h5><%= @current_user.username %></h5>
 	<h5><%= @current_user.id %></h5>
 	<h5><%= session[:user_id] %></h5>
