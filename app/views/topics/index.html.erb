@@ -1,0 +1,10 @@
+<h1>Topics</h1>
+<%= link_to "发布新帖子", new_topic_path %>
+<ul>
+	<% @topics.each do |topic| %>
+		<li>
+			<%= gravatar_for(topic.user) %>
+			<%= topic.title %>
+		</li>
+	<% end %>
+</ul>

@@ -1,0 +1,19 @@
+---
+applications:
+  .:
+    name: sunny-codecampo
+    framework:
+      name: rails3
+      info:
+        mem: 256M
+        description: Rails Application
+        exec: 
+    infra: ap-aws
+    url: sunny-codecampo.ap01.aws.af.cm
+    mem: '256'
+    instances: 1
+    services:
+      sunny-codecampo-mysql-71460:
+        type: mysql
+      codecampo:
+        type: mongodb

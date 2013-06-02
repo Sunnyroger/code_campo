@@ -44,4 +44,11 @@ module UserSessionsHelper
     session[:return_to] = request.fullpath
   end
 
+  def need_signed_in
+    unless login? 
+      store_location
+      redirect_to signin_path, notice: "Please sign in !" 
+    end
+  end
+
 end

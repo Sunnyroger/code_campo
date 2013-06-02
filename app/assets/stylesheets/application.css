@@ -8,4 +8,4 @@
 */
 
 body{padding-top: 80px;}
-a,ul,li{margin:0px;padding:0px;}
+a,ul,li{margin:0px;padding:0px;list-style:none;}

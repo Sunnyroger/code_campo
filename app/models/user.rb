@@ -8,6 +8,8 @@ class User
 	field :email
 	field :password_digest
 
+	has_many :topics
+
 	before_save { |woca| woca.email =  email.downcase }
 	has_secure_password
 

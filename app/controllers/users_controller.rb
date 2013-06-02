@@ -38,13 +38,6 @@ class UsersController < ApplicationController
 	end
 
 	private
-		def need_signed_in
-			unless login? 
-				store_location
-				redirect_to signin_path, notice: "Please sign in !" 
-			end
-		end
-
 		def correct_user
 			@user = User.find(params[:id])
 			redirect_to root_path unless current_user?(@user)
