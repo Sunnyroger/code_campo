@@ -33,8 +33,14 @@ class TopicsController < ApplicationController
 		
 	end
 
-	def delete
-		
+	def destroy
+		@topic = Topic.find(params[:id])
+		if @topic.destroy
+			flash[:notice]="删除成功"
+			redirect_to :action => :index
+		else 
+			flash[:error]="呀，删除失败！"
+		end
 	end
 
 end

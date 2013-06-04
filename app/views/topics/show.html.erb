@@ -1,2 +1,2 @@
 <h1><%= @topic.title %></h1>
-<%= link_to "删除" %>
+<%= link_to "删除", topic_path(@topic), :confirm => "你真的要删了我么？", :method => :delete%>
