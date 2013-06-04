@@ -9,5 +9,5 @@ CodeCampo::Application.routes.draw do
   match '/signup', to: 'users#new'
   match '/signin', to: 'user_sessions#new'
   match '/signout', to: 'user_sessions#destroy', via: :delete  
-
+  
 end

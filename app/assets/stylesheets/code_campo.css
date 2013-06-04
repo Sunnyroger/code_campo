@@ -1,9 +1,15 @@
 .gravatar{
-	width: 80;
-	height: 80;
+	width: 80px;
+	height: 80px;
 	border-radius: 8px;
 	display: inline-block;
 }
+.gravatar-small{
+	width: 48px;
+	height: 48px;
+	display: inline-block;
+}
+
 .brand{
 	font-size: 24.5px;
 	line-height: 50px;
@@ -14,5 +20,37 @@
 }
 
 .user-bar-list{
-	padding: 10px,10px;
+	padding: 10px 10px;
+}
+.new_topics{
+	float :right;
+}
+.topics{
+	width: 700px;
+	height: 1050px;
+}
+.topic_line{
+	width :700px;
+	height: 49px;
+	background: #EEE;
+	border-bottom: 1px solid #ddd;
+	padding: 5px 0px;
+}
+.avatar{
+	width: 48px;
+	height: 56px;
+	display: inline-block;
+	margin-left: 10px;
+}
+.right-info{
+	width: 620px;
+	height: 56px;
+	display: inline-block;
+}
+.infos{
+	padding-right: 70px;
+}
+.title{
+	font-size: 16px;
+	margin: 10px 0px 10px 0px;
 }

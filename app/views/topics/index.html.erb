@@ -1,10 +1,18 @@
 <h1>Topics</h1>
-<%= link_to "发布新帖子", new_topic_path %>
-<ul>
+<%= link_to "发布新帖子", new_topic_path, :class => "new_topics btn btn-primary btn-large" %>
+<section class="topics">
 	<% @topics.each do |topic| %>
-		<li>
-			<%= gravatar_for(topic.user) %>
-			<%= topic.title %>
-		</li>
+		<div class="topic_line">
+			<div class="avatar">
+				<%= link_to gravatar_for_small(topic.user), user_path(topic.user) %>
+			</div>
+			<div class="right-info">
+				<div class="infos">
+					<div class="title"><%= link_to topic.title, topic_path(topic) %></div>
+					<div class="info"></div>
+				</div>
+				<div class="replies"></div>
+			</div>
+		</div>
 	<% end %>
-</ul>
+</section>

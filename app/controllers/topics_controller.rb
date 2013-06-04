@@ -7,6 +7,10 @@ class TopicsController < ApplicationController
 		@topics = Topic.all
 	end
 
+	def show
+		@topic = Topic.find(params[:id])
+	end
+
 	def new
 		@topic = Topic.new
 	end
@@ -17,7 +21,6 @@ class TopicsController < ApplicationController
 			flash[:success] = "创建成功"
 			redirect_to topics_path
 		else
-			flash[:error] = "创建失败"
 			render :new
 		end
 	end
