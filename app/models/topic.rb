@@ -3,7 +3,7 @@ class Topic
 	include Mongoid::Document
 	include Mongoid::Timestamps
 
-	paginates_per 10
+	paginates_per 15
 
 	field :title
 	field :content
