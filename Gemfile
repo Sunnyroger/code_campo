@@ -14,7 +14,6 @@ group :development, :test do
   #better_errors
   gem 'better_errors'
   gem 'binding_of_caller'
-
 end
 
 group :assets do
@@ -23,9 +22,11 @@ group :assets do
 	gem 'twitter-bootstrap-rails'
   gem 'uglifier', '>= 1.0.3'
 end
-
-gem 'mongoid'		
+#mongodb
+gem 'mongoid'
+#paginate
 gem 'kaminari'
+#ability
 gem 'cancan'
 #simple_form
 gem 'simple_form', '~> 2.1.0'

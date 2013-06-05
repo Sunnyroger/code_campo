@@ -1,0 +1,6 @@
+<h3>Update your Topic</h3>
+<%= simple_form_for @topic do |f|%>
+	<%= f.input :title, label: '标题', :input_html => {:size => 60} %>
+	<%= f.input :content, label: '内容', as: :text, :input_html => {:rows => "10", :cols => "20"} %>
+	<%= f.button :submit, value: '确认', :class => "btn btn-primary" %>
+<% end%>

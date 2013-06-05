@@ -4,7 +4,7 @@ class TopicsController < ApplicationController
 	before_filter :need_signed_in, :except => [:index]
 
 	def index
-		@topics = Topic.all
+		@topics = Topic.order_by([[:created_at, :desc]]).page params[:page]
 	end
 
 	def show
@@ -26,11 +26,19 @@ class TopicsController < ApplicationController
 	end
 
 	def edit
-		
+		@topic = Topic.find(params[:id])
 	end
 
 	def update
-		
+		@topic=Topic.find(params[:id])
+
+		if @topic.update_attributes(params[:topic])
+			redirect_to @topic
+			flash[:success] = "跟新成功!"
+		else
+			flash[:error] = "失败啦"
+			render :edit
+		end
 	end
 
 	def destroy

@@ -38,19 +38,31 @@
 }
 .avatar{
 	width: 48px;
-	height: 56px;
+	height: 48px;
+	float :left;
 	display: inline-block;
-	margin-left: 10px;
+	margin: 1px 0 0 10px;
 }
 .right-info{
-	width: 620px;
+	width: 640px;
 	height: 56px;
 	display: inline-block;
 }
 .infos{
-	padding-right: 70px;
+	width: 600px;
+	display: inline-block;
 }
 .title{
-	font-size: 16px;
-	margin: 10px 0px 10px 0px;
+	font-size: 14px;
+	margin: 5px 0px 5px 10px;
+}
+.info{
+	font-size: 10px;
+	margin: 5px 0px 5px 10px;
+}
+.replies{
+	width: 30px;
+	height: 45px;
+  display: inline-block;
+  vertical-align: middle;
 }

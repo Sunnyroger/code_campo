@@ -3,6 +3,8 @@ class Topic
 	include Mongoid::Document
 	include Mongoid::Timestamps
 
+	paginates_per 10
+
 	field :title
 	field :content
 	field :tags, type: Array

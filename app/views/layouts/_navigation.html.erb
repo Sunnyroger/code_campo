@@ -1,6 +1,7 @@
 <%= link_to "CodeCampo", root_path, class: "brand" %>
 <div class="user-bar">
 	<% if login? %>
+		您当前以<%= link_to current_user.username , user_path(current_user) %>登录
 		<%= link_to "SignOut", signout_path, method: "delete" %>
 	<% else %>
 		<%= link_to "LogIn", signin_path, class: "user-bar-list" %>

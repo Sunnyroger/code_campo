@@ -1,4 +1,4 @@
-<h1>Topics</h1>
+<h1><%= link_to "topics", topics_path %></h1>
 <%= link_to "发布新帖子", new_topic_path, :class => "new_topics btn btn-primary btn-large" %>
 <section class="topics">
 	<% @topics.each do |topic| %>
@@ -9,10 +9,11 @@
 			<div class="right-info">
 				<div class="infos">
 					<div class="title"><%= link_to topic.title, topic_path(topic) %></div>
-					<div class="info"></div>
+					<div class="info">发布于：10min</div>
 				</div>
-				<div class="replies"></div>
+				<div class="replies">3</div>
 			</div>
 		</div>
 	<% end %>
+	<%= paginate @topics %>
 </section>

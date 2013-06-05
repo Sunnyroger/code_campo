@@ -1,2 +1,8 @@
 <h1><%= @topic.title %></h1>
+<h2><%= @topic.content %></h2>
+<h3><%= @topic.created_at %></h3>
+<h3><%= @topic.updated_at %></h3>
+<h3><%= @topic.tags %></h3>
+<h3><%= @topic.user.username%></h3>
+<%= link_to "修改", edit_topic_path(@topic) %>
 <%= link_to "删除", topic_path(@topic), :confirm => "你真的要删了我么？", :method => :delete%>
