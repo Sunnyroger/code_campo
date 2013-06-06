@@ -3,6 +3,7 @@ CodeCampo::Application.routes.draw do
   resources :users
   resources :topics
   resources :user_sessions, only: [:new, :create, :destroy]
+  resources :replies, only: [:new, :create, :edit, :update, :destroy]
 
   root :to => 'users#index'
 

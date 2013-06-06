@@ -31,12 +31,11 @@ class TopicsController < ApplicationController
 
 	def update
 		@topic=Topic.find(params[:id])
-
 		if @topic.update_attributes(params[:topic])
 			redirect_to @topic
-			flash[:success] = "跟新成功!"
+			flash[:success] = "更新成功!"
 		else
-			flash[:error] = "失败啦"
+			flash[:error] = "失败啦!"
 			render :edit
 		end
 	end
@@ -49,6 +48,12 @@ class TopicsController < ApplicationController
 		else 
 			flash[:error]="呀，删除失败！"
 		end
+	end
+
+	protected
+
+	def find
+		
 	end
 
 end

@@ -9,6 +9,7 @@ class User
 	field :password_digest
 
 	has_many :topics
+	has_many :replies
 
 	before_save { |woca| woca.email =  email.downcase }
 	has_secure_password
