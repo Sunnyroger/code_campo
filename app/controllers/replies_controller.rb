@@ -19,7 +19,7 @@ class RepliesController < ApplicationController
 	end
 
 	def edit
-		
+		@reply
 	end
 
 	def update
