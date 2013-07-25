@@ -1,18 +1,29 @@
-<h1><%= @topic.title %></h1>
-<h2><%= @topic.content %></h2>
-<h3><%= @topic.created_at %></h3>
-<h3><%= @topic.updated_at %></h3>
-<h3><%= @topic.active_time %></h3>
-<h3><%= @topic.tags %></h3>
-<h3><%= @topic.user.username%></h3>
-<ul>
-	<% @topic.replies.each do |reply|%>
-		<li><%= reply.content %></li>
-	<% end %>
-</ul>
-<%= simple_form_for @reply do |f| %>
+<section>
+	<div class='span9'>
+		<article class='topic-boder'>
+			<h1><%= @topic.title %></h1>
+			<h2><%= @topic.content %></h2>
+			<h3><%= @topic.created_at.to_date %></h3>
+			<h3><%= @topic.updated_at.to_date %></h3>
+			<h3><%= @topic.active_time.to_date %></h3>
+			<h3><%= @topic.tags %></h3>
+			<h3><%= @topic.user.username%></h3>
+		</article>
+		<article class='reply-border'>
+			<ul>
+				<% @topic.replies.each do |reply|%>
+					<li><%= reply.content %></li>
+					<li><%= reply.user.username %></li>
+				<% end %>
+			</ul>
+		</article>
 
-<% end %>
-<br />
-<%= link_to "修改", edit_topic_path(@topic) %>
-<%= link_to "删除", topic_path(@topic), :confirm => "你真的要删了我么？", :method => :delete%>
+			<%= simple_form_for @reply, url: replies_path(:topic_id => @topic) do |f| %>
+				<%= f.input :content, label: false, as: :text%>
+				<%= f.submit '确认' %>
+			<% end %>
+
+	</div>
+	<div class='span3'>
+	</div>
+</section>

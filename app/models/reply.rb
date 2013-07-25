@@ -8,10 +8,12 @@ class Reply
 	belongs_to :user
 	belongs_to :topic
 
+	validates :content, presence: { message: '回复不能为空'}
+
 	after_create :update_topic
 
 	def update_topic
-		topic.update_attribute :active_time, self.created_at
+		self.topic.update_attribute :active_time, self.created_at
 	end
 
 end

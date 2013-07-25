@@ -1,6 +1,7 @@
 # encoding: utf-8
 class RepliesController < ApplicationController
 	before_filter :need_signed_in
+	before_filter :find_topic, only: [:new, :create]
 
 	def new
 		@reply = current_user.replies.new :topic => @topic
@@ -9,12 +10,12 @@ class RepliesController < ApplicationController
 	def create 
 		@reply = current_user.replies.new params[:reply]
 		@reply.topic = @topic
+		binding.pry
 		if @reply.save
 			flash[:success] = "回复成功！"
 			redirect_to @topic
 		else
 			render :new
-			flash.now[:error] = "添加失败！"
 		end
 	end
 
@@ -29,5 +30,10 @@ class RepliesController < ApplicationController
 	def destroy
 		
 	end
+
+	protected
+		def find_topic
+			@topic = Topic.find(params[:topic_id])
+		end
 
 end

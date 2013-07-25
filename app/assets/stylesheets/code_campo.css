@@ -63,3 +63,7 @@
 	font-size: 8px;
 	margin: 5px 0px 5px 10px;
 }
+.topic-boder{
+	border: 1px, solid #333;
+	border-radius: 5px;
+}

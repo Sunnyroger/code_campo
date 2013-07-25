@@ -9,6 +9,7 @@ class TopicsController < ApplicationController
 
 	def show
 		@topic = Topic.find(params[:id])
+		@reply = current_user.replies.new :topic => @topic
 	end
 
 	def new
@@ -52,8 +53,5 @@ class TopicsController < ApplicationController
 
 	protected
 
-	def find
-		
-	end
 
 end
