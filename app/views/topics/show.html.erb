@@ -10,18 +10,16 @@
 			<h3><%= @topic.user.username%></h3>
 		</article>
 		<article class='reply-border'>
-			<ul>
-				<% @topic.replies.each do |reply|%>
-					<li><%= reply.content %></li>
-					<li><%= reply.user.username %></li>
-				<% end %>
-			</ul>
+			<% @topic.replies.each do |reply|%>  
+				<li><%= reply.content %></li>
+				<li><%= reply.user.username %></li>
+			<% end %>
 		</article>
 
-			<%= simple_form_for @reply, url: replies_path(:topic_id => @topic) do |f| %>
-				<%= f.input :content, label: false, as: :text%>
-				<%= f.submit '确认' %>
-			<% end %>
+		<%= simple_form_for @reply, url: replies_path(:topic_id => @topic) do |f| %>
+			<%= f.input :content, label: false, as: :text%>
+			<%= f.submit '确认' %>
+		<% end %>
 
 	</div>
 	<div class='span3'>

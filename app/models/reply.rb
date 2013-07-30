@@ -3,12 +3,14 @@ class Reply
 	include Mongoid::Document
 	include Mongoid::Timestamps
 
+	attr_accessible :content
+
 	field :content
 
 	belongs_to :user
 	belongs_to :topic
 
-	validates :content, presence: { message: '回复不能为空'}
+	validates :content, presence: { message: '回复不能为空' }
 
 	after_create :update_topic
 

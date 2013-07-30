@@ -6,13 +6,15 @@
 			<div class="avatar">
 				<%= link_to gravatar_for_small(topic.user), user_path(topic.user) %>
 			</div>
-			<div class="replies">3</div>
+			<div class="replies"><%= topic.replies.count %></div>
 			<div class="right-info">
 				<div class="title"><%= link_to topic.title, topic_path(topic) %></div>
 				<div class="info">
 					<%= link_to topic.user.username, user_path(topic.user) %>
 					发布于<%= time_ago_in_words topic.created_at %>以前
-					&nbsp||&nbsp最后由<%= link_to current_user.username,current_user %>于<%= time_ago_in_words topic.updated_at %>回复
+					<% unless topic.replies.blank? %>
+						&nbsp||&nbsp最后由<%= link_to topic.replies.last.user.username, current_user %>于<%= time_ago_in_words topic.updated_at %>回复
+					<% end %>
 				</div>
 			</div>
 		</div>

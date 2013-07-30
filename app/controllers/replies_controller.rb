@@ -4,13 +4,13 @@ class RepliesController < ApplicationController
 	before_filter :find_topic, only: [:new, :create]
 
 	def new
+		binding.pry
 		@reply = current_user.replies.new :topic => @topic
 	end
 
 	def create 
 		@reply = current_user.replies.new params[:reply]
 		@reply.topic = @topic
-		binding.pry
 		if @reply.save
 			flash[:success] = "回复成功！"
 			redirect_to @topic
