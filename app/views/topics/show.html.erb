@@ -11,12 +11,11 @@
 		</article>
 		<article class='reply-border'>
 			<% @topic.replies.each do |reply|%>  
-				<li><%= reply.content %></li>
-				<li><%= reply.user.username %></li>
+				<%= render partial: reply, object: @reply %>
 			<% end %>
 		</article>
-
-		<%= simple_form_for @reply, url: replies_path(:topic_id => @topic) do |f| %>
+		<div class="success-error"></div>
+		<%= simple_form_for @reply, url: replies_path(:topic_id => @topic), remote: true do |f| %>
 			<%= f.input :content, label: false, as: :text%>
 			<%= f.submit '确认' %>
 		<% end %>

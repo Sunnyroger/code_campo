@@ -4,7 +4,7 @@ class TopicsController < ApplicationController
 	before_filter :need_signed_in, :except => [:index]
 
 	def index
-		@topics = Topic.order_by([[:created_at, :desc]]).page params[:page]
+		@topics = Topic.order_by([[:active_time, :desc]]).page params[:page]
 	end
 
 	def show
