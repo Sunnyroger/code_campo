@@ -1,0 +1,4 @@
+<%= simple_form_for @reply, url: replies_path(:topic_id => @topic) do |f| %>
+	<%= f.input :content, label: false, as: :text%>
+	<%= f.submit '确认' %>
+<% end %>
