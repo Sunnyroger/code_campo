@@ -2,4 +2,9 @@
 	<li><%= reply.content %></li>
 	<li><%= reply.user.username %></li>
 	<li><%= time_ago_in_words reply.created_at %></li>
+	<li>
+		<% if current_user?(reply.user) %>
+			<%= link_to "删除", reply_path(reply), method: :delete, data: { confirm: "你确定要删除么？" } %>
+		<% end %> 
+	</li>
 </div>

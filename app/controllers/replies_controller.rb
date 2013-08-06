@@ -31,7 +31,12 @@ class RepliesController < ApplicationController
 	end
 
 	def destroy
-		
+		@reply = Reply.find(params[:id])
+		if @reply.destroy
+			redirect_to topic_path(@reply.topic_id), notice: "删除成功！"
+		else
+			redirect_to topic_path(@reply.topic_id), notice: "对不起，删除失败了,请稍候重试！"
+		end
 	end
 
 	protected
