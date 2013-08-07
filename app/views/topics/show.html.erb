@@ -12,14 +12,23 @@
 		<article class='reply-border'>
 			<% @topic.replies.each do |reply|%>  
 				<%= render partial: reply, object: @reply %>
-			<% end %>
+			<% end %>	
+			<%= paginate @replies, remote: true %>
 		</article>
-		<div class="success-error"></div>
+		<div id="success-error"></div>
 		<%= simple_form_for @reply, url: replies_path(:topic_id => @topic), remote: true do |f| %>
-			<%= f.input :content, label: false, as: :text%>
+			<%= f.input :content, label: false, as: :text, input_html: {:rows => "8", :cols => "20"} %>
 			<%= f.submit '确认' %>
 		<% end %>
 	</div>
 	<div class='span3'>
+		<section class='relate-topic'>
+			<%- relate_topics = @topic.relate_topics(5) %>
+			<% if relate_topics.any? %>
+				<% relate_topics.each do |relate_topic| %>
+					<h5><%= link_to relate_topic.title, topic_path(relate_topic) %></h5>
+				<% end %>
+			<% end %>
+		</section>
 	</div>
 </section>

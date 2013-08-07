@@ -13,11 +13,11 @@ class RepliesController < ApplicationController
 		@reply.topic = @topic
 		respond_to do |format|
 			if @reply.save
-				format.html{ redirect_to @topic, notice: "回复成功"}
-				format.js{ render layout: false	 }
+				format.html { redirect_to @topic, notice: "回复成功"}
+				format.js { render layout: false	 }
 			else
 				format.html { render :new }
-      	format.js { render :layout => false, :status => 406  }
+      	format.js { render :layout => false, status: 406 }
 			end
 		end
 	end

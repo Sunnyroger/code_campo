@@ -3,7 +3,9 @@ class Topic
 	include Mongoid::Document
 	include Mongoid::Timestamps
 
-	attr_accessible :title, :content
+	attr_accessible :title, :content, :tag_string
+
+	scope :active, order_by([[:active_time, :desc]])
 
 	paginates_per 15
 
@@ -12,6 +14,7 @@ class Topic
 	field :tags,        type: Array
 	field :active_time, type: DateTime
 	field :number_id,   type: Integer
+	field :replies_count, type: Integer, default: 0
 	#index :number_id,   :unique => true
 
 	belongs_to :user
@@ -36,8 +39,20 @@ class Topic
 		self.active_time = Time.now
 	end
 
+	def tag_string=(string)
+		self.tags = string.split(/[,\s]/)
+	end
+
+	def tag_string
+		self.tags.to_a.join(', ')
+	end
+
 	def set_number_id
 		
+	end
+
+	def relate_topics(count)
+		Topic.active.any_in(:tags => tags.to_a).where(:_id.ne => id).limit(count)
 	end
 
 end

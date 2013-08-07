@@ -4,11 +4,12 @@ class TopicsController < ApplicationController
 	before_filter :need_signed_in, :except => [:index]
 
 	def index
-		@topics = Topic.order_by([[:active_time, :desc]]).page params[:page]
+		@topics = Topic.active.page params[:page]
 	end
 
 	def show
 		@topic = Topic.find(params[:id])
+		@replies = @topic.replies.page params[:page]
 		@reply = current_user.replies.new :topic => @topic
 	end
 

@@ -2,5 +2,5 @@
 	$('<%= escape_javascript(render :partial => 'reply', :object => @reply) %>').appendTo('.reply-border').hide().fadeIn(1000);
 	$("#new_reply")[0].reset();
 <% else %>
-	$('<span class="error-message"><%= escape_javascript(@reply.errors.full_messages.join(',')) %></span>').appendTo($('.success-error'))
+	$('<span class="error-message"><%= escape_javascript(@reply.errors.full_messages.join(',')) %></span>').appendTo($('#success-error'))
 <% end %>
