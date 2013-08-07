@@ -1,7 +1,11 @@
 CodeCampo::Application.routes.draw do
   
   resources :users
-  resources :topics
+  resources :topics, only: [:index, :show, :new, :create, :edit, :update] do
+  	collection do
+  		get :my_topic
+  	end
+  end 
   resources :user_sessions, only: [:new, :create, :destroy]
   resources :replies, only: [:new, :create, :edit, :update, :destroy]
 

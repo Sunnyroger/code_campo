@@ -13,6 +13,12 @@ class TopicsController < ApplicationController
 		@reply = current_user.replies.new :topic => @topic
 	end
 
+	def my_topic
+		@topics = current_user.topics.active.page params[:page]
+		#binding.pry
+		render :index
+	end
+
 	def new
 		@topic = Topic.new
 	end
